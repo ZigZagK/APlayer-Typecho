@@ -94,8 +94,10 @@ class Meting_Action extends Typecho_Widget implements Widget_Interface_Do
             header("Content-Type: application/javascript");
             if (!empty($data['tlyric'])) {
                 echo $this->lrctran($data['lyric'], $data['tlyric']);
-            } else {
+            } else if (!empty($data['lyric'])) {
                 echo $data['lyric'];
+            } else {
+                echo '[00:00.000] 纯音乐，请欣赏';
             }
         }
 
